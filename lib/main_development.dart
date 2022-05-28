@@ -5,9 +5,15 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:mes_ams_lab7/app/app.dart';
+import 'package:flutter/material.dart';
 import 'package:mes_ams_lab7/bootstrap.dart';
+import 'package:posts_api/posts_api.dart';
 
 void main() {
-  bootstrap(() => const App());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final dio = Dio();
+  final postsApi = PostsApi(dio);
+
+  bootstrap(postsApi: postsApi);
 }

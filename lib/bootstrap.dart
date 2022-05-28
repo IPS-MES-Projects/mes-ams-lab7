@@ -10,6 +10,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mes_ams_lab7/app/app.dart';
+import 'package:posts_api/posts_api.dart';
+import 'package:posts_repository/posts_repository.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -25,15 +28,21 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+Future<void> bootstrap({required PostsApi postsApi}) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
+  final postsRepository = PostsRepository(postsApi: postsApi);
+
   await runZonedGuarded(
     () async {
       await BlocOverrides.runZoned(
-        () async => runApp(await builder()),
+        () async => runApp(
+          App(
+            postsRepository: postsRepository,
+          ),
+        ),
         blocObserver: AppBlocObserver(),
       );
     },
