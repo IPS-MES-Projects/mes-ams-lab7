@@ -17,18 +17,30 @@ class PostsRepository {
       );
 
   Future<Post> updatePost({
-    required int id,
     required Post post,
-  }) =>
-      _postsApi.updatePost(
-        id: id,
-        post: post,
-      );
+  }) {
+    if (post.id == null) {
+      throw PostNoId();
+    }
+
+    return _postsApi.updatePost(
+      id: post.id!,
+      post: post,
+    );
+  }
 
   Future<void> deletePost({
-    required int id,
-  }) =>
-      _postsApi.deletePost(
-        id: id,
-      );
+    required Post post,
+  }) {
+    if (post.id == null) {
+      throw PostNoId();
+    }
+
+    return _postsApi.deletePost(
+      id: post.id!,
+    );
+  }
 }
+
+/// Error thrown when a [Post] does not have an id.
+class PostNoId implements Exception {}

@@ -19,4 +19,9 @@ class Post {
   final String body;
 
   Map<String, dynamic> toJson() => _$PostToJson(this);
+
+  @override
+  String toString() {
+    return 'Post - id: $id, userId: $userId, title: $title, body: $body.';
+  }
 }

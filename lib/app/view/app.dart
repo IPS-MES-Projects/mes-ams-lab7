@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mes_ams_lab7/home/home.dart';
 import 'package:mes_ams_lab7/l10n/l10n.dart';
+import 'package:mes_ams_lab7/theme/app_theme.dart';
 import 'package:posts_repository/posts_repository.dart';
 
 class App extends StatelessWidget {
@@ -37,12 +38,8 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(color: Colors.amber.shade700),
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.amberAccent.shade700,
-        ),
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

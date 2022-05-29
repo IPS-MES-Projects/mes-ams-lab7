@@ -1,7 +1,49 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "homeAppBarTitle": "Posts List",
+    "delete": "Delete",
+    "edit": "Edit",
+    "postLoadError": "Failed to load posts",
+    "postCreateSuccess": "Created post with id {postId}",
+    "@postCreateSuccess": {
+        "placeholders": {
+            "postId": {
+                "type": "int"
+            }
+        }
+    },
+    "postCreateError": "Failed to create a new post",
+    "postEditSuccess": "Edited post with id {postId}",
+    "@postEditSuccess": {
+        "placeholders": {
+            "postId": {
+                "type": "int"
+            }
+        }
+    },
+    "postEditError": "Failed to edit the post",
+    "postDeleteSuccess": "Deleted post with id {postId}",
+    "@postDeleteSuccess": {
+        "placeholders": {
+            "postId": {
+                "type": "int"
+            }
+        }
+    },
+    "postDeleteError": "Failed to delete post with id {postId}",
+    "@postDeleteError": {
+        "placeholders": {
+            "postId": {
+                "type": "int"
+            }
+        }
+    },
+    "viewPost": "Post Detail",
+    "createPost": "Create Post",
+    "editPost": "Edit Post",
+    "userIdLabel": "User ID:",
+    "titleLabel": "Title",
+    "titleHint": "Title of the post",
+    "bodyLabel": "Body",
+    "bodyHint": "Body text of the post"
 }
